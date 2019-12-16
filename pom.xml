@@ -1,0 +1,142 @@
+
+  <project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.2.1.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.POCforParaquet</groupId>
+	<artifactId>spring-spark-paraquet</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>spring-spark-paraquet</name>
+	<description>Demo project for Spring Boot</description>
+
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<dependencies>
+				<dependency>
+			<groupId>com.opencsv</groupId>
+			<artifactId>opencsv</artifactId>
+			<version>4.1</version>
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.logging.log4j</groupId>
+					<artifactId>log4j-to-slf4j</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.derby</groupId>
+			<artifactId>derby</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+			<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.janino</groupId>
+			<artifactId>commons-compiler</artifactId>
+			<version>3.0.8</version>
+		</dependency>
+				<dependency>
+			<groupId>org.codehaus.janino</groupId>
+			<artifactId>janino</artifactId>
+			<version>3.0.8</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.facebook.presto/presto-hive -->
+<dependency>
+    <groupId>com.facebook.presto</groupId>
+    <artifactId>presto-hive</artifactId>
+    <version>0.126</version>
+    <exclusions>
+    	<exclusion>
+    		<groupId>org.slf4j</groupId>
+    		<artifactId>slf4j-jdk14</artifactId>
+    	</exclusion>
+    	<exclusion>
+    		<groupId>org.slf4j</groupId>
+    		<artifactId>log4j-over-slf4j</artifactId>
+    	</exclusion>
+    </exclusions>
+</dependency>
+		
+<!-- https://mvnrepository.com/artifact/org.apache.spark/spark-core -->
+		<!-- https://mvnrepository.com/artifact/org.apache.spark/spark-core -->
+<dependency>
+    <groupId>org.apache.spark</groupId>
+    <artifactId>spark-core_2.11</artifactId>
+    <version>2.2.1</version>
+</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.spark/spark-mllib -->
+<dependency>
+    <groupId>org.apache.spark</groupId>
+    <artifactId>spark-mllib_2.11</artifactId>
+    <version>2.2.1</version>
+    <scope>runtime</scope>
+</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.apache.spark/spark-sql -->
+<dependency>
+    <groupId>org.apache.spark</groupId>
+    <artifactId>spark-sql_2.11</artifactId>
+    <version>2.2.1</version>
+</dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/org.apache.parquet/parquet-column -->
+<dependency>
+    <groupId>org.apache.parquet</groupId>
+    <artifactId>parquet-column</artifactId>
+    <version>1.8.2</version>
+</dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.parquet/parquet-hadoop -->
+<dependency>
+    <groupId>org.apache.parquet</groupId>
+    <artifactId>parquet-hadoop</artifactId>
+    <version>1.8.2</version>
+</dependency>
+        <!-- https://mvnrepository.com/artifact/com.facebook.presto.hive/hive-apache -->
+
+		
+	</dependencies>
+	
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
