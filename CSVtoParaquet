@@ -1,0 +1,45 @@
+package service;
+
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+
+import org.apache.spark.api.java.function.MapFunction;
+import org.apache.spark.sql.Dataset;
+import org.apache.spark.sql.Encoders;
+import org.apache.spark.sql.Row;
+import org.apache.spark.sql.SparkSession;
+
+
+public class CSVtoParaquet {
+	
+// This program can be used when we have headers in CSV so that when parquet file is created the columns have same names.	
+
+	public static void main(String[] args) {
+		CSVtoParaquet reader = new CSVtoParaquet();
+		String status = reader.convert();
+	}
+
+	 public String convert() {
+		 ParaquetConverter pc=  new ParaquetConverter();
+		 File tempFile = null;
+		 SparkSession spark = SparkSession.builder().appName("CSV to Dataset<OBJECT_NAME>").master("local").getOrCreate();
+		 String filename = "a.csv";
+			Dataset<Row> df = spark.read().format("csv").option("inferSchema", "true").option("header", "True").load(filename);
+			
+			df.show();
+			try {
+				tempFile = pc.createTempFile();
+				if (tempFile != null) {
+	            	System.out.println("Parquet file write location::::::"+tempFile.getPath());
+	            	df.write().parquet(tempFile.getPath());
+	                tempFile = pc.retrieveParquetFileFromPath(tempFile);
+	                
+	            }
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return "File is Created at "+tempFile.getPath();
+	 }
+}
