@@ -6,7 +6,7 @@ public class Turbine {
 	private String Name;
   
   @CsvBindByPosition(position = 1)
-	private String Author_name;
+	private String Author_Name;
 	
 	@CsvBindByPosition(position = 2)
 	private String Cost;
